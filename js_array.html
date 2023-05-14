@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>                //0                       //1               //2                   //3
+        //array
+        var mailList = ["raphael@mail.com", "fritz@mail.com", "pascal@mail.com", "sepp@gmail.com" ];
+        function sendMails(mailList){
+            if(mailList[3].includes("@mail.com") === true) {
+                // sende email
+                console.log("Email wird gesendet.")
+            } else {
+                console.log("Email wird nicht gesendet.")
+            }
+        }
+
+        sendMails(mailList);     
+    </script>
+    
+</body>
+</html>

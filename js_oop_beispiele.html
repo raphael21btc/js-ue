@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UE OOP JS</title>
+</head>
+
+<body>
+    <script>
+        /*Übungsbeispiel 1: Erstellen Sie eine Klasse für eine Einkaufsliste
+        
+        Erstellen Sie eine Klasse ShoppingList, die eine Einkaufsliste darstellt. Die Klasse sollte folgende Eigenschaften und Methoden haben:
+        
+            items: Eine Liste von Einkaufsartikeln, die der Einkaufsliste hinzugefügt wurden
+            addItem(item): Eine Methode, die einen neuen Artikel zur Einkaufsliste hinzufügt
+            removeItem(item): Eine Methode, die einen Artikel aus der Einkaufsliste entfernt
+            clearList(): Eine Methode, die die gesamte Einkaufsliste löscht
+            printList(): Eine Methode, die alle Einkaufsartikel in der Einkaufsliste ausgibt*/
+        
+        class ShoppingList {
+            constructor() {
+                this.items = [];
+            }
+
+            addItem(item) {
+                this.items.push(item);
+            }
+
+            removeItem(item) {
+                const index = this.items.indexOf(item);
+                if (index > -1) {
+                    this.items.splice(index, 1);
+                }
+            }
+
+            clearList() {
+                this.items = [];
+            }
+
+            printList() {
+                console.log("Einkaufsliste:");
+                this.items.forEach(item => console.log(`- ${item}`));
+            }
+        }
+
+        console.log(">> Beispiel 1.)")
+        console.log();
+        const shoppingList = new ShoppingList();
+        shoppingList.addItem("Milch");
+        shoppingList.addItem("Brot");
+        shoppingList.addItem("Eier");
+        shoppingList.printList();
+        shoppingList.removeItem("Brot");
+        shoppingList.printList();
+        shoppingList.clearList();
+        shoppingList.printList();
+
+
+        /*#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#*/
+
+        /*Übungsbeispiel 2: Erstellen Sie eine Klasse für einen Taschenrechner
+        
+        Erstellen Sie eine Klasse Calculator, die einen einfachen Taschenrechner darstellt. Die Klasse sollte folgende Eigenschaften und Methoden haben:
+        
+            result: Das aktuelle Ergebnis der Berechnung
+            add(num): Eine Methode, die num zum aktuellen Ergebnis addiert
+            subtract(num): Eine Methode, die num vom aktuellen Ergebnis subtrahiert
+            multiply(num): Eine Methode, die num mit dem aktuellen Ergebnis multipliziert
+            divide(num): Eine Methode, die das aktuelle Ergebnis durch num teilt
+            clear(): Eine Methode, die das Ergebnis zurücksetzt*/
+
+        class Calculator {
+            constructor() {
+                this.result = 0;
+            }
+
+            add(num) {
+                this.result += this.result + num;
+            }
+
+            subtract(num) {
+                this.result -= num;
+            }
+
+            multiply(num) {
+                this.result *= num;
+            }
+
+            divide(num) {
+                this.result /= num;
+            }
+
+            clear() {
+                this.result = 0;
+            }
+        }
+
+        console.log(">> Beispiel 2.)")
+        console.log();
+        const calculator = new Calculator();
+        calculator.add(5);
+        calculator.subtract(2);
+        calculator.multiply(3);
+        calculator.divide(2);
+        console.log(calculator.result);
+        calculator
+
+    </script>
+</body>
+
+</html>

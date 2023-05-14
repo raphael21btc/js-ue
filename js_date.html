@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Schreibe eine Funktion, die die Tage bis Weihnachten ausrechnet und die Anzahl der Tage als Rückgabewert zurückgibt.
+        function daysUntilChristmas() {
+            const today = new Date();
+            const christmas = new Date(today.getFullYear(), 11, 24);
+            
+            if(today.getMonth() === 11 && today.getDate() > 24) {
+                christmas.setFullYear(christmas.getFullYear() + 1);
+            }
+
+            const diff = christmas.getTime() - today.getTime();
+            console.log("diff in milliseconds: " + diff);
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            return days;
+        }
+        console.log("Weihnachten ist in " + daysUntilChristmas() + " Tagen.");
+
+        console.log("------------------");
+        console.log("Beispiel 2.)");
+
+        // Schreibe eine Funktion, die ein Datum als Parameter nimmt und wie folgt zurückgibt: DDMMMJJJJ Beispiel 22 Jan 2023
+        function formatDate(date) {
+            const months = ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez",];
+            const day = date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+
+            console.log(day + " " + month + " " + year);
+        }
+
+        formatDate(new Date());
+
+    </script>
+</body>
+</html>

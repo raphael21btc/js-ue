@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+        Beim Anlegen eines Cookies müssen verschiedene Attribute berücksichtigt werden, um sicherzustellen, dass der Cookie ordnungsgemäß funktioniert und den Datenschutzanforderungen entspricht. Hier sind die wichtigsten Attribute, die beim Anlegen eines Cookies berücksichtigt werden sollten:
+
+        Name: Der Name des Cookies, der später verwendet wird, um auf den Cookie zuzugreifen.
+        Wert: Der Wert des Cookies, der später verwendet wird, um auf den Cookie zuzugreifen.
+        Ablaufdatum: Das Ablaufdatum des Cookies, nach dem der Browser den Cookie automatisch löscht. Das Ablaufdatum wird normalerweise als Datum und Uhrzeit im UTC-Format angegeben.
+        Pfad: Der Pfad auf der Website, auf dem der Cookie verfügbar sein soll. Standardmäßig ist der Pfad "/" (was bedeutet, dass der Cookie auf allen Seiten der Website verfügbar ist).
+        Domain: Die Domain, auf der der Cookie verfügbar sein soll. Standardmäßig ist die Domain der aktuellen Seite.
+        Sicherheit: Ein boolescher Wert, der angibt, ob der Cookie nur über eine sichere (HTTPS-) Verbindung übertragen werden soll.
+
+        Beispiel:
+        document.cookie = "name=Wert; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=example.com; secure";
+
+        In diesem Beispiel wird ein Cookie mit dem Namen "name" und dem Wert "Wert" erstellt. Der Cookie läuft am 1. Januar 1970 um 00:00 Uhr UTC ab, hat einen Pfad von "/" und ist auf der Domain "example.com" verfügbar. Der Cookie wird nur über eine sichere Verbindung (HTTPS) übertragen.
+        */
+        
+        // Schreibe einen Cookie
+        document.cookie = "username=Max Mustermann; expires=Fri, 27 Apr 2024 12:00:00 UTC; path=/";
+        function getCookie(name) {
+            let cookies = document.cookie.split(";"); // Splitte den Cookie-String in einzelne Cookies auf
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim(); // Entferne Leerzeichen am Anfang und Ende des Cookies
+                if (cookie.startsWith(name + "=")) {
+                    return cookie.substring(name.length + 1); // Extrahiere den Wert des Cookies
+                }
+            }
+            return null; // Wenn kein Cookie mit diesem Namen gefunden wurde, gib null zurück
+        }
+
+        console.log(getCookie("username"));
+    </script>
+</body>
+
+</html>
